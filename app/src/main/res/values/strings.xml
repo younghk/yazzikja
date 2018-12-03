@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">yazzikja</string>
+    <string name="rc_color">splash_background</string>
+    <string name="star5">★★★★★</string>
+    <string name="star4">★★★★</string>
+    <string name="star3">★★★</string>
+    <string name="star2">★★</string>
+    <string name="star1">★</string>
+</resources>

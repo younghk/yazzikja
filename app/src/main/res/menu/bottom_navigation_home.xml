@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/home_pink"
+        android:iconTintMode="add"
+        android:iconTint="@color/colorYapink"
+        android:title="Home"/>
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/search"
+        android:iconTintMode="add"
+        android:iconTint="@color/colorYapink"
+        android:title="Search"/>
+    <item
+        android:id="@+id/action_chat"
+        android:icon="@drawable/chat"
+        android:iconTintMode="add"
+        android:iconTint="@color/colorYapink"
+        android:title="Chat"/>
+    <item
+        android:id="@+id/action_account"
+        android:icon="@drawable/profile"
+        android:iconTintMode="add"
+        android:iconTint="@color/colorYapink"
+        android:title="Account"/>
+</menu>

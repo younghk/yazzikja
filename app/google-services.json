@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "99684689779",
+    "firebase_url": "https://yazzikja.firebaseio.com",
+    "project_id": "yazzikja",
+    "storage_bucket": "yazzikja.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99684689779:android:3dece89be59adc45",
+        "android_client_info": {
+          "package_name": "sogong.korea.yazzikja"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99684689779-c7pnb2b60p1os86q066ord2dfigke649.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sogong.korea.yazzikja",
+            "certificate_hash": "cde23d7473370452ae053a973272d8dd30b5034d"
+          }
+        },
+        {
+          "client_id": "99684689779-buktv97bof44q36d25fgvshq0173g2ok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxKQeoV4ngFuxKbwjQ97TrepujuTaCTq4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99684689779-buktv97bof44q36d25fgvshq0173g2ok.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

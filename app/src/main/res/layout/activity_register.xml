@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                tools:context=".RegisterActivity">
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/background_grad" />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:layout_marginTop="60dp"
+            android:textSize="30sp"
+            android:textColor="#ffffff"
+            android:layout_centerHorizontal="true"/>
+
+
+    <FrameLayout
+            android:id="@+id/registeractivity_form_framelayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="150dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Name"
+                android:textColor="#80ffffff"
+                android:layout_marginLeft="4dp"
+                android:textSize="14sp"/>
+
+        <EditText
+                android:id="@+id/registeractivity_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="15"
+                android:inputType="textPersonName"
+                android:hint="Yazzikja"
+                android:textColor="#80ffffff"
+                android:textColorHint='#80ffffff'
+                android:textSize="18sp"
+                android:backgroundTint="#64ffffff"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:text="Email"
+                android:textColor="#80ffffff"
+                android:layout_marginLeft="4dp"
+                android:textSize="14sp"/>
+
+        <EditText
+                android:id="@+id/registeractivity_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:ems="15"
+                android:inputType="textEmailAddress"
+                android:hint="zzik@yazzikja.com"
+                android:textColorHint='#80ffffff'
+                android:textColor="#80ffffff"
+                android:textSize="18sp"
+                android:backgroundTint="#64ffffff"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="140dp"
+                android:text="Password"
+                android:textColor="#80ffffff"
+                android:layout_marginLeft="4dp"
+                android:textSize="14sp"/>
+
+        <EditText
+                android:id="@+id/registeractivity_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="150dp"
+                android:ems="15"
+                android:inputType="textPassword"
+                android:textColorHint='#80ffffff'
+                android:textColor="#80ffffff"
+                android:textSize="18sp"
+                android:backgroundTint="#64ffffff" android:hint="******"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="210dp"
+                android:text="Password Confirm"
+                android:textColor="#80ffffff"
+                android:layout_marginLeft="4dp"
+                android:textSize="14sp"/>
+
+        <EditText
+                android:id="@+id/registeractivity_password_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="220dp"
+                android:ems="15"
+                android:inputType="textPassword"
+                android:hint="******"
+                android:textColorHint='#80ffffff'
+                android:textColor="#80ffffff"
+                android:textSize="18sp"
+                android:backgroundTint="#64ffffff"/>
+
+   <!--     <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="275dp"
+                android:checked="false"
+                android:clickable="true"
+                android:duplicateParentState="false"
+                android:text="Photographee"
+                android:textColor="#80ffffff"
+                android:textSize="15sp"
+                android:buttonTint="#64ffffff"/> -->
+
+        <CheckBox
+                android:id="@+id/registeractivity_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="195dp"
+                android:layout_marginTop="275dp"
+                android:text="Photographer"
+                android:textColor="#80ffffff"
+                android:textSize="15sp"
+                android:buttonTint="#64ffffff"/>
+
+        <FrameLayout
+                android:id="@+id/registeractivity_button_frame_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="340dp">
+
+            <ImageView
+
+                    android:layout_width ="wrap_content"
+                    android:layout_height ="wrap_content"
+                    android:layout_marginLeft="95dp"
+                    android:layout_marginTop="9dp"
+                    android:src="@drawable/register"
+                    android:elevation="5dp"
+                    android:scaleX="0.6"
+                    android:scaleY="0.6"/>
+
+            <Button
+                    android:id="@+id/registeractivity_register_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Register"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorYapink"
+                    android:backgroundTint="#ffffff"/>
+
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>

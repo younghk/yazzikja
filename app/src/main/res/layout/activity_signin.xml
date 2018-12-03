@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_grad"
+>
+    <TextView
+            android:id="@+id/signinactivity_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="60dp"
+            android:gravity="center_vertical|center"
+            android:text="SIGN IN"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:textStyle="normal"
+            android:paddingBottom="40dp" />
+    <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:text="Email"
+                android:textColor="#80ffffff"
+                android:layout_marginLeft="4dp"
+                android:textSize="14sp"/>
+
+        <EditText
+                android:id="@+id/signinactivity_edittext_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:ems="15"
+                android:inputType="textEmailAddress"
+                android:hint="email@email.me"
+                android:textColor="#80ffffff"
+                android:textColorHint="#80ffffff"
+                android:textSize="18sp"
+                android:backgroundTint="#64ffffff"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="140dp"
+                android:text="Password"
+                android:textColor="#80ffffff"
+                android:layout_marginLeft="4dp"
+                android:textSize="14sp"/>
+
+        <EditText
+                android:id="@+id/signinactivity_edittext_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="150dp"
+                android:ems="15"
+                android:inputType="textPassword"
+                android:text=""
+                android:textColor="#80ffffff"
+                android:textSize="18sp"
+                android:backgroundTint="#64ffffff"/>
+
+        <CheckBox
+                android:id="@+id/signinactivity_checkbox"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="195dp"
+                android:layout_marginTop="215dp"
+                android:text="Photographer"
+                android:textColor="#80ffffff"
+                android:textSize="15sp"
+                android:buttonTint="#64ffffff"/>
+
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="280dp">
+
+            <Button
+                    android:id="@+id/signinactivity_button_signin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sign in"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorYapink"
+                    android:backgroundTint="#ffffff"/>
+
+
+        </FrameLayout>
+
+        <Button
+                android:id="@+id/signinactivity_button_signup"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="375dp"
+                android:layout_marginLeft="116dp"
+                android:text="Sign Up"
+                android:background="@color/fui_transparent"
+                android:textColor="@android:color/white"/>
+
+    </FrameLayout>
+</RelativeLayout>
