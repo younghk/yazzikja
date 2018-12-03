@@ -1,111 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background_grad"
->
-    <TextView
-            android:id="@+id/loginitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="60dp"
-            android:gravity="center_vertical|center"
-            android:text="SIGN IN"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            android:textStyle="normal"
-            android:paddingBottom="40dp" />
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- 상단 -->
     <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="150dp">
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
-                android:text="Email"
-                android:textColor="#80ffffff"
-                android:layout_marginLeft="4dp"
-                android:textSize="14sp"/>
-
-        <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
-                android:ems="15"
-                android:inputType="textEmailAddress"
-                android:text="Write your email address"
-                android:textColor="#80ffffff"
-                android:textSize="18sp"
-                android:backgroundTint="#64ffffff"/>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="140dp"
-                android:text="Password"
-                android:textColor="#80ffffff"
-                android:layout_marginLeft="4dp"
-                android:textSize="14sp"/>
-
-        <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="150dp"
-                android:ems="15"
-                android:inputType="textPassword"
-                android:text=""
-                android:textColor="#80ffffff"
-                android:textSize="18sp"
-                android:backgroundTint="#64ffffff"/>
-
-        <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="215dp"
-                android:checked="false"
-                android:clickable="false"
-                android:duplicateParentState="false"
-                android:text="Photographee"
-                android:textColor="#80ffffff"
-                android:textSize="15sp"
-                android:buttonTint="#64ffffff"/>
-
-        <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="195dp"
-                android:layout_marginTop="215dp"
-                android:text="Photographer"
-                android:textColor="#80ffffff"
-                android:textSize="15sp"
-                android:buttonTint="#64ffffff"/>
-
+            android:id="@+id/manage_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <!--상단 배경, 일단 임의로 지정해놓음 -->
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/profile_background"/>
+        <!--상단문구, 일단 이름이랑 위치는 그냥 써놓음-->
         <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="280dp">
-
-            <Button
+                android:layout_marginTop="40dp"
+                android:paddingBottom="20dp">
+            <TextView
+                    android:id="@+id/manage_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Sign in"
-                    android:textSize="15sp"
-                    android:textColor="@color/colorYapink"
-                    android:backgroundTint="#ffffff"/>
-
-
+                    android:gravity="center_horizontal"
+                    android:textColor="#ffffff"
+                    android:text="userid"
+                    android:textSize="20sp"/>
+            <TextView
+                    android:id="@+id/manage_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="30dp"
+                    android:textColor="#ffffff"
+                    android:text="Photographer, location"
+                    android:textSize="16sp"/>
+            <TextView
+                    android:id="@+id/manage_num_like"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="55dp"
+                    android:textColor="#ffffff"
+                    android:text="xxx likes"
+                    android:textSize="16sp"/>
         </FrameLayout>
-
     </FrameLayout>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nickname"
+            android:layout_below="@id/manage_top"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:textSize="18sp"
+            android:textColor="#80000000"/>
+    <EditText
+            android:id="@+id/manage_nickname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="userid"
+            android:textSize="18sp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginRight="40dp"
+            android:layout_below="@id/manage_top"
+            android:layout_marginTop="50dp"
+            android:textColorHint="#80000000"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile Photo"
+            android:textSize="18sp"
+            android:layout_below="@id/manage_nickname"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#80000000"/>
+
+    <ImageView
+            android:id="@+id/manage_photodisplay"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/profile_background"
+            android:layout_below="@id/manage_nickname"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="40dp"/>
+
+
+    <ImageView
+            android:id="@+id/manage_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/manage_photodisplay"
+            android:layout_below="@id/manage_nickname"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="40dp"
+            android:src="@drawable/select"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/manage_photodisplay"
+            android:text="Location"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:textSize="18sp"
+            android:textColor="#80000000"/>
+    <EditText
+            android:id="@+id/manage_editlocaiton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/manage_photodisplay"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginRight="40dp"
+            android:hint="User Location"
+            android:textColorHint="#80000000"
+            android:textSize="18sp"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Introduction"
+            android:layout_below="@id/manage_editlocaiton"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:textColor="#80000000"/>
+    <EditText
+            android:id="@+id/manage_introduction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/manage_editlocaiton"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginRight="40dp"
+            android:hint="User Introduction"
+            android:textColorHint="#80000000"
+            android:textSize="18sp"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/manage_introduction"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/confirm"/>
 
 
 </RelativeLayout>

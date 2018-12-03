@@ -7,4 +7,7 @@ class UserModel {
     var pushToken: String? = null
     var statusMessage: String? = null
     var photographer: String? = null
+    var userLocation: String? = null
+    var userNumLike: Integer? = null
+    var userIntroduction: String? = null
 }

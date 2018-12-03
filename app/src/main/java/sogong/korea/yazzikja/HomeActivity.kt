@@ -6,26 +6,25 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import android.view.View
+import android.view.WindowManager
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.iid.InstanceIdResult
-
-import java.util.HashMap
-
 import sogong.korea.yazzikja.fragment.AccountFragment
 import sogong.korea.yazzikja.fragment.ChatFragment
 import sogong.korea.yazzikja.fragment.PeopleFragment
-
-import android.view.View
+import java.util.*
 
 class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
+        // remove notificationbar
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         supportFragmentManager.beginTransaction().replace(R.id.homeactivity_framelayout, PeopleFragment()).commit()
 
         val bottomNavigationView = findViewById<View>(R.id.homeactivity_bottomnavigationview) as BottomNavigationView
