@@ -47,6 +47,7 @@
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
         android:layout_below="@+id/chatfragment_textview_title"
         android:id="@+id/chatfragment_recyclerview"
         ></android.support.v7.widget.RecyclerView>
