@@ -1,13 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent">
 
+
+    <TextView
+            android:id="@+id/chatfragment_textview_title"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+
+            android:layout_marginTop="18dp"
+            android:gravity="center_vertical|center"
+            android:text="Messages"
+            android:textColor="@color/colorYapink"
+            android:textSize="20sp"
+            android:paddingBottom="40dp" />
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="2.5dp"
+            android:id="@+id/chatfragment_stroke0"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/chatfragment_textview_title"
+            android:src="@drawable/back"
+    />
+
+    <ImageView
+            android:id="@+id/chatfragment_button_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/chatfragment_textview_title"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="4dp"
+            android:padding="10dp"
+            android:src="@drawable/add"
+
+            android:background="#FFFFFF"
+    />
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/chatfragment_textview_title"
         android:id="@+id/chatfragment_recyclerview"
         ></android.support.v7.widget.RecyclerView>
-</LinearLayout>
+</RelativeLayout>
