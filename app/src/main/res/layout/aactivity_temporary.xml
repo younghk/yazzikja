@@ -147,7 +147,7 @@
             android:layout_below="@id/manage_introduction"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
-            android:src="@drawable/confirm"/>
+            android:src="@drawable/button_confirm"/>
 
 
 </RelativeLayout>
