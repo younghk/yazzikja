@@ -1,12 +1,10 @@
 package sogong.korea.yazzikja.fragment
 
-import android.app.Activity
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -14,7 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -22,18 +19,12 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-
-import java.text.SimpleDateFormat
-import java.util.ArrayList
-import java.util.Collections
-import java.util.Date
-import java.util.TimeZone
-import java.util.TreeMap
-
 import sogong.korea.yazzikja.R
 import sogong.korea.yazzikja.chat.MessageActivity
 import sogong.korea.yazzikja.model.ChatModel
 import sogong.korea.yazzikja.model.UserModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ChatFragment : Fragment() {
 
@@ -116,6 +107,7 @@ class ChatFragment : Fragment() {
                     val activityOptions =
                         ActivityOptions.makeCustomAnimation(v.context, R.anim.fromright, R.anim.toleft)
                     startActivity(messageIntent, activityOptions.toBundle())
+
                 }
             }
             // Date Format

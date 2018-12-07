@@ -1,37 +1,30 @@
 package sogong.korea.yazzikja
 
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.provider.MediaStore
 import android.support.annotation.RequiresApi
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import com.firebase.ui.auth.data.model.User
+import android.view.WindowManager
+import android.widget.*
+import android.widget.Toast.LENGTH_SHORT
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
-
-import sogong.korea.yazzikja.model.UserModel
-
-import android.R.attr.data
-import android.app.Activity
-import android.view.WindowManager
-import android.widget.*
-import android.widget.Toast.LENGTH_SHORT
 import kotlinx.android.synthetic.main.activity_register.*
+import sogong.korea.yazzikja.model.UserModel
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -124,7 +117,7 @@ class RegisterActivity : AppCompatActivity() {
 
                                         override fun onComplete(task: Task<UploadTask.TaskSnapshot>) {
                                             //                                                @SuppressWarnings("VisibleForTest")
-                                            val addOnSuccessListener = profileImageRef.getDownloadUrl()
+                                            profileImageRef.getDownloadUrl()
                                                 .addOnSuccessListener(object : OnSuccessListener<Uri> {
                                                     override fun onSuccess(downloadUrl: Uri) {
                                                         //do something with downloadurl

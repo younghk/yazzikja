@@ -161,7 +161,8 @@
             android:layout_below="@id/accountfragment_edittext_introduction"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
-            android:background="@drawable/button_confirm"
+            android:background="@android:color/darker_gray"
+            android:text="Button"
             />
 
 

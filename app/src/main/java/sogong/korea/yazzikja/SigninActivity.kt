@@ -11,12 +11,12 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.WindowManager
 import android.widget.*
+import android.widget.Toast.LENGTH_SHORT
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
-import sogong.korea.yazzikja.R.id.*
 
 
 class SigninActivity : AppCompatActivity() {
@@ -77,14 +77,19 @@ class SigninActivity : AppCompatActivity() {
     }
 
     internal fun loginEvent() {
-        mFirebaseAuth!!.signInWithEmailAndPassword(email!!.text.toString(), userPassword!!.text.toString())
-            .addOnCompleteListener(object : OnCompleteListener<AuthResult> {
-                override fun onComplete(task: Task<AuthResult>) {
-                    if (!task.isSuccessful()) {
-                        Toast.makeText(this@SigninActivity, task.exception.toString(), Toast.LENGTH_LONG).show()
+        if (email!!.text.toString() == null || userPassword!!.text.toString() == null) {
+            Toast.makeText(this@SigninActivity, "Please enter the information correctly", LENGTH_SHORT).show()
+        }
+        else {
+            mFirebaseAuth!!.signInWithEmailAndPassword(email!!.text.toString(), userPassword!!.text.toString())
+                .addOnCompleteListener(object : OnCompleteListener<AuthResult> {
+                    override fun onComplete(task: Task<AuthResult>) {
+                        if (!task.isSuccessful()) {
+                            Toast.makeText(this@SigninActivity, task.exception.toString(), Toast.LENGTH_LONG).show()
+                        }
                     }
-                }
-            })
+                })
+        }
     }
 
     private fun onSigninButtonClick(v: View) {
