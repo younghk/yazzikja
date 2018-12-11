@@ -7,20 +7,29 @@
     <FrameLayout
             android:id="@+id/accountfragment_manage_top"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="135dp">
 
         <View
                 android:layout_width="match_parent"
                 android:layout_height="135dp"
-                android:background="#2f000000"
+                android:background="#af000000"
         />
         <!--상단 배경, 일단 임의로 지정해놓음 -->
         <ImageView
                 android:id="@+id/accountfragment_profile_background_image_large"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="404dp"
+                android:layout_marginTop="-150dp"
                 android:alpha="0.5"
+
                 android:src="@drawable/profile_background"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="67dp"
+                android:layout_marginTop="135dp"
+                android:background="#FFFFFF"
+                />
 
         <!--상단문구, 일단 이름이랑 위치는 그냥 써놓음-->
         <FrameLayout
@@ -97,8 +106,19 @@
             android:layout_height="80dp"
             android:src="@drawable/profile_background"
             android:layout_below="@id/accountfragment_edittext_nickname"
+            android:scaleType="centerCrop"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="40dp"/>
+
+    <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/circle_crop"
+            android:layout_below="@id/accountfragment_edittext_nickname"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="40dp"
+
+            />
 
 
     <ImageButton

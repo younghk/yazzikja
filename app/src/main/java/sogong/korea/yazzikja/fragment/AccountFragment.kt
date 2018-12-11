@@ -91,8 +91,8 @@ class AccountFragment : Fragment() {
                     .fitCenter()
                     .into(imageViewUserPhoto);*/
 
-                Glide.with(inflater?.context).load(userModel?.profileImageUri).apply(RequestOptions().circleCrop()).into(imageViewUserPhoto!!)
-                Glide.with(inflater?.context).load(userModel?.profileImageUri).apply(RequestOptions()).into(imageViewUserPhotoLarge!!)
+                Glide.with(inflater?.context.applicationContext).load(userModel?.profileImageUri).apply(RequestOptions().circleCrop()).into(imageViewUserPhoto!!)
+                Glide.with(inflater?.context.applicationContext).load(userModel?.profileImageUri).apply(RequestOptions()).into(imageViewUserPhotoLarge!!)
             }
 
             override fun onCancelled(databaseError: DatabaseError) {

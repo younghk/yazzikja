@@ -3,12 +3,7 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
-<<<<<<< HEAD
                 android:layout_height="match_parent">
-=======
-                android:layout_height="match_parent"
->
->>>>>>> 3eb1acd89e55be83c96ee77be2210049218f840d
 
     <TextView
             android:id="@+id/Title"
