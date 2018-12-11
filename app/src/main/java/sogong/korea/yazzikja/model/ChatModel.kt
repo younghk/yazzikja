@@ -6,8 +6,8 @@ import java.util.HashMap
 
 class ChatModel {
 
-    var users: Map<String, Boolean> = HashMap()
-    var comments: Map<String, Comment> = HashMap()
+    var users: HashMap<String, Boolean>  = HashMap()
+    var comments: HashMap<String, Comment> = HashMap()
 
     class Comment {
         var uid: String? = null

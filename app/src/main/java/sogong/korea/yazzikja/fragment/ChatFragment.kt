@@ -74,7 +74,7 @@ class ChatFragment : Fragment() {
             val customViewHolder = viewHolder as CustomViewHolder
             var destinationUid: String? = null
 
-            for (user in chatModels[i].users.keys) {
+            for (user in chatModels[i].users!!.keys) {
                 if (user != uid) {
                     destinationUid = user
                     destinationUsers.add(destinationUid)
@@ -96,9 +96,9 @@ class ChatFragment : Fragment() {
                 })
 
             val commentMap = TreeMap<String, ChatModel.Comment>(Collections.reverseOrder<Any>())
-            commentMap.putAll(chatModels[i].comments)
+            commentMap.putAll(chatModels[i].comments!!)
             val lastMessageKey = commentMap.keys.toTypedArray()[0]
-            customViewHolder.textview_last_message.text = chatModels[i].comments[lastMessageKey]!!.message
+            customViewHolder.textview_last_message.text = chatModels[i].comments!![lastMessageKey]!!.message
 
             customViewHolder.itemView.setOnClickListener { v ->
                 val messageIntent = Intent(v.context, MessageActivity::class.java)
@@ -112,7 +112,7 @@ class ChatFragment : Fragment() {
             }
             // Date Format
             simpleDateFormat.timeZone = TimeZone.getTimeZone("Asia/Seoul")
-            val unixTime = chatModels[i].comments[lastMessageKey]!!.timestamp as Long
+            val unixTime = chatModels[i].comments!![lastMessageKey]!!.timestamp as Long
             val date = Date(unixTime)
             customViewHolder.textview_timestamp.text = simpleDateFormat.format(date)
         }

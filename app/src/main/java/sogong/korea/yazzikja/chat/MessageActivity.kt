@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -54,14 +55,13 @@ class MessageActivity : AppCompatActivity() {
         button = findViewById<View>(R.id.messageactivity_imagebutton) as ImageButton
         editText = findViewById<View>(R.id.messageactivity_edittext) as EditText
         chatroomName = messageactivity_name
-        chatroomImage = messageactivity_img_holder1
+        chatroomImage = findViewById(R.id.messageactivity_img_holder1) as ImageView
         recyclerView = findViewById<View>(R.id.messageactivity_recyclerview) as RecyclerView
 
-        checkChatRoom()
         button!!.setOnClickListener {
             val chatModel = ChatModel()
-            chatModel.users.plus(Pair(uid!!, true))
-            chatModel.users.plus(Pair(destinationUid!!, true))
+            chatModel.users!!.put(uid!!, true)
+            chatModel.users!!.put(destinationUid!!, true)
 
             if (chatRoomUid == null) {
                 button!!.isEnabled = false
@@ -120,24 +120,37 @@ class MessageActivity : AppCompatActivity() {
         FirebaseDatabase.getInstance().reference.child("chatrooms").orderByChild("users/" + uid!!).equalTo(true)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    if (dataSnapshot.value == null) {
+
+                   if (dataSnapshot.value == null) {
                         button!!.isEnabled = false
                         val newRoom = ChatModel()
-                        newRoom.users.plus(Pair(uid!!, true))
-                        newRoom.users.plus(Pair(destinationUid!!, true))
+                       newRoom.users!!.put(uid!!, true)
+                       newRoom.users!!.put(destinationUid!!, true)
+
                         FirebaseDatabase.getInstance().reference.child("chatrooms").push().setValue(newRoom)
                             .addOnSuccessListener { checkChatRoom() }
                         return
                     }
-
+                    var checkChatroom = false
                     for (item in dataSnapshot.children) {
                         val chatModel = item.getValue(ChatModel::class.java)
-                        if (chatModel!!.users.containsKey(destinationUid) && chatModel.users.size == 2) {
+
+                        if (chatModel!!.users!!.containsKey(destinationUid!!) && chatModel.users!!.size == 2) {
                             chatRoomUid = item.key
                             button!!.isEnabled = true
                             recyclerView!!.layoutManager = LinearLayoutManager(this@MessageActivity)
                             recyclerView!!.adapter = RecyclerViewAdapter()
+                            checkChatroom = true
                         }
+                    }
+                    if(checkChatroom==false) {
+                        button!!.isEnabled = false
+                        val newRoom = ChatModel()
+                        newRoom.users!!.put(uid!!, true)
+                        newRoom.users!!.put(destinationUid!!, true)
+                        FirebaseDatabase.getInstance().reference.child("chatrooms").push().setValue(newRoom)
+                            .addOnSuccessListener { checkChatRoom() }
+                        return
                     }
 
                 }
@@ -159,7 +172,10 @@ class MessageActivity : AppCompatActivity() {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
                         destinationUserModel = dataSnapshot.getValue(UserModel::class.java)
                         chatroomName?.setText(destinationUserModel!!.userNickname)
-
+                        Glide.with(this@MessageActivity)
+                            .load(destinationUserModel!!.profileImageUri)
+                            .apply(RequestOptions().circleCrop())
+                            .into(chatroomImage!!)
                         getMessageList()
                     }
 
@@ -217,13 +233,15 @@ class MessageActivity : AppCompatActivity() {
             }
         }
 
-
         override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
             val messageViewHolder = viewHolder as MessageViewHolder
 
+<<<<<<< HEAD
             messageViewHolder.textview_message.text = comments[position].message
             messageViewHolder.textview_message.textSize = 25f
             messageViewHolder.linearlayout_destination.visibility = View.INVISIBLE
+=======
+>>>>>>> 3eb1acd89e55be83c96ee77be2210049218f840d
 
             if (comments[position].uid == uid) {
                 messageViewHolder.textview_message.setBackgroundResource(R.drawable.rightbubble)
@@ -231,10 +249,6 @@ class MessageActivity : AppCompatActivity() {
 //                messageViewHolder.textview_right_message.scaleY(-1.0)
                 messageViewHolder.linearylayout_main.gravity = Gravity.RIGHT
             } else {
-                Glide.with(viewHolder.itemView.context)
-                    .load(destinationUserModel!!.profileImageUri)
-                    .apply(RequestOptions().circleCrop())
-                    .into(messageactivity_img_holder1)
 //                messageViewHolder.textview_nickname.text = destinationUserModel!!.userNickname
 //                messageViewHolder.linearlayout_destination.visibility = View.VISIBLE
                 messageViewHolder.textview_message.setBackgroundResource(R.drawable.leftbubble)
@@ -260,5 +274,3 @@ class MessageActivity : AppCompatActivity() {
     }
 
 }
-
-
