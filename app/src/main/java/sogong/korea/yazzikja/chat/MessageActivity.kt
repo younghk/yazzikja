@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -198,7 +197,7 @@ class MessageActivity : AppCompatActivity() {
 
                         notifyDataSetChanged()
 
-            //            recyclerView!!.scrollToPosition(comments.size - 1)
+                        recyclerView!!.scrollToPosition(comments.size - 1)
 
                     }
 
@@ -236,12 +235,10 @@ class MessageActivity : AppCompatActivity() {
         override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
             val messageViewHolder = viewHolder as MessageViewHolder
 
-<<<<<<< HEAD
+
             messageViewHolder.textview_message.text = comments[position].message
             messageViewHolder.textview_message.textSize = 25f
             messageViewHolder.linearlayout_destination.visibility = View.INVISIBLE
-=======
->>>>>>> 3eb1acd89e55be83c96ee77be2210049218f840d
 
             if (comments[position].uid == uid) {
                 messageViewHolder.textview_message.setBackgroundResource(R.drawable.rightbubble)
