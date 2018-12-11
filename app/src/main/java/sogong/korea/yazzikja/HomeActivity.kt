@@ -13,9 +13,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.iid.InstanceIdResult
-import sogong.korea.yazzikja.fragment.AccountFragment
 import sogong.korea.yazzikja.fragment.ChatFragment
 import sogong.korea.yazzikja.fragment.PeopleFragment
+import sogong.korea.yazzikja.fragment.ProfileFragment
 import java.util.*
 
 class HomeActivity : AppCompatActivity() {
@@ -46,7 +46,7 @@ class HomeActivity : AppCompatActivity() {
                     }
                     R.id.action_account -> {
                         supportFragmentManager.beginTransaction()
-                            .replace(R.id.homeactivity_framelayout, AccountFragment()).commit()
+                            .replace(R.id.homeactivity_framelayout, ProfileFragment()).commit()
                         return true
                     }
                 }

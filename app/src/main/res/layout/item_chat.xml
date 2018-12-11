@@ -46,7 +46,7 @@
             android:layout_height="2.5dp"
             android:id="@+id/stroke1"
             android:layout_alignParentStart="true"
-            android:layout_below="@id/img_holder1"
+            android:layout_below="@id/chatitem_imageview"
             android:src="@drawable/back"
     />
 

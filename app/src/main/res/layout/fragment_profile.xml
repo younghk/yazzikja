@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="20dp">
+
+            <!-- 상단 -->
+            <FrameLayout
+                    android:id="@+id/profile_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <!--상단 배경, 일단 임의로 지정해놓음 -->
+                <ImageView
+                        android:id="@+id/profilefragment_imageview_profile_image_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/profile_background"/>
+                <!--상단문구, 일단 이름이랑 위치는 그냥 써놓음-->
+                <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="80dp"
+                        android:paddingBottom="50dp">
+                    <TextView
+                            android:id="@+id/profilefragment_textview_nickname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:textColor="#ffffff"
+                            android:text="userid"
+                            android:textSize="20sp"/>
+                    <TextView
+                            android:id="@+id/profilefragment_textview_location"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:paddingTop="30dp"
+                            android:textColor="#ffffff"
+                            android:text="Photographer, location"
+                            android:textSize="16sp"/>
+                    <TextView
+                            android:id="@+id/profilefragment_textview_numlike"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:paddingTop="55dp"
+                            android:textColor="#ffffff"
+                            android:text="xxx likes"
+                            android:textSize="16sp"/>
+
+                </FrameLayout>
+            </FrameLayout>
+
+            <!--프로필 소개-->
+            <TextView
+                    android:id="@+id/profilefragment_textview_profile_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profile_top"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="프로필소개여기"
+                    android:textColor="@color/textcolor"
+                    android:textSize="14sp"
+            />
+            <!--아이콘-->
+            <FrameLayout
+                    android:id="@+id/profilefragment_framelayout_profile_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profilefragment_textview_profile_description"
+                    android:layout_marginTop="10dp"
+                    android:paddingBottom="10dp">
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"
+                        android:src="@drawable/stroke"
+                />
+
+                <ImageView
+                        android:layout_width="23dp"
+                        android:layout_height="23dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="60dp"
+                        android:src="@drawable/register"/>
+
+                <ImageView
+                        android:id="@+id/profilefragment_imageview_upload_post"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="18dp"
+                        android:src="@drawable/upload"
+                        android:background="#ffffff"/>
+
+                <ImageView
+                        android:id="@+id/profilefragment_imageview_edit_profile"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="18dp"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="60dp"
+                        android:src="@drawable/edit"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
+                        android:layout_marginLeft="45dp"
+                        android:text="00 Posts"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="New Post"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="35dp"
+                        android:text="Edit Profile"/>
+
+                <ImageView
+                        android:layout_width="1dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/stroke"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginRight="60dp"
+                        android:layout_marginTop="20dp"/>
+
+                <ImageView
+                        android:layout_width="1dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/stroke"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginLeft="60dp"
+                        android:layout_marginTop="20dp"/>
+            </FrameLayout>
+
+            <!--Location and background-->
+            <TextView
+                    android:id="@+id/profilefragment_textview_location_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profilefragment_framelayout_profile_icon"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="20dp"
+                    android:text="Location"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp"
+                    android:background="#e9eef0"/>
+
+            <!--location1-->
+            <TextView
+                    android:id="@+id/profilefragment_textview_location1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profilefragment_framelayout_profile_icon"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="Location1"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp"
+                    android:background="#ffffff"/>
+
+            <!--location2-->
+            <TextView
+                    android:id="@+id/profilefragment_textview_location2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profilefragment_framelayout_profile_icon"
+                    android:layout_toRightOf="@id/profilefragment_textview_location1"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="Location2"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp"
+                    android:background="#ffffff"
+            />
+
+
+            <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/profilefragment_textview_location_background"
+
+                    android:id="@+id/profilefragment_recyclerview"
+            ></android.support.v7.widget.RecyclerView>
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

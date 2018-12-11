@@ -1,60 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
     <!--post date-->
     <TextView
-            android:id="@+id/post_date"
+            android:id="@+id/profilefeeditem_textview_postdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="YYYY/MM/DD"
-            android:layout_below="@id/profilefragment_textview_location_background"
-            android:layout_alignLeft="@id/post_photo"
+            android:layout_alignLeft="@id/profilefeeditem_imageview_postphoto"
             android:paddingTop="20dp"/>
 
 
     <!--photo here-->
     <ImageView
-            android:id="@+id/post_photo"
+            android:id="@+id/profilefeeditem_imageview_postphoto"
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:src="@drawable/profile_background"
-            android:layout_below="@id/post_date"
+            android:layout_below="@id/profilefeeditem_textview_postdate"
             android:paddingTop="10dp"
             android:layout_centerHorizontal="true"
             android:paddingBottom="10dp"/>
 
     <!--like button-->
     <ImageView
-            android:id="@+id/likebutton"
+            android:id="@+id/profilefeeditem_imageview_button_like"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_alignLeft="@id/post_photo"
-            android:layout_below="@id/post_photo"
+            android:layout_alignLeft="@id/profilefeeditem_imageview_postphoto"
+            android:layout_below="@id/profilefeeditem_imageview_postphoto"
             android:src="@drawable/like"
             android:scaleX="0.8"
             android:scaleY="0.8"/>
 
     <!--number of like-->
     <ImageView
-            android:id="@+id/likenum_back"
+            android:id="@+id/profilefeeditem_imageview_numlike_background"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/likenum"
-            android:layout_above="@id/likebutton"
-            android:layout_alignLeft="@id/likebutton"
+            android:layout_above="@id/profilefeeditem_imageview_button_like"
+            android:layout_alignLeft="@id/profilefeeditem_imageview_button_like"
             android:textColor="@color/colorYapink"/>
 
     <TextView
-            android:id="@+id/likenum"
+            android:id="@+id/profilefeeditem_textview_postphoto_numlike"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="xx"
-            android:layout_above="@id/likebutton"
-            android:layout_alignLeft="@id/likebutton"
+            android:layout_above="@id/profilefeeditem_imageview_button_like"
+            android:layout_alignLeft="@id/profilefeeditem_imageview_button_like"
             android:layout_marginLeft="8dp"
             android:layout_marginBottom="10dp"
             android:textColor="@color/colorYapink"/>
@@ -62,42 +58,44 @@
 
     <!--post time-->
     <TextView
-            android:id="@+id/post_time"
+            android:id="@+id/profilefeeditem_textview_posttime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/post_photo"
-            android:layout_toRightOf="@id/likebutton"
+            android:layout_below="@id/profilefeeditem_imageview_postphoto"
+            android:layout_toRightOf="@id/profilefeeditem_imageview_button_like"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:text="xx days ago"/>
 
     <ImageView
-            android:id="@+id/post_edit"
+            android:id="@+id/profilefeeditem_imageview_editpost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/editpost"
-            android:layout_below="@id/post_photo"
-            android:layout_alignRight="@id/post_photo"
+            android:layout_below="@id/profilefeeditem_imageview_postphoto"
+            android:layout_alignRight="@id/profilefeeditem_imageview_postphoto"
             android:scaleX="0.8"
             android:scaleY="0.8"/>
 
     <!--post title-->
     <TextView
-            android:id="@+id/post_title"
+            android:id="@+id/profilefeeditem_textview_posttitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="title"
             android:textSize="20sp"
-            android:layout_below="@id/likebutton"
-            android:layout_alignLeft="@id/post_photo"
+            android:layout_below="@id/profilefeeditem_imageview_button_like"
+            android:layout_alignLeft="@id/profilefeeditem_imageview_postphoto"
             android:layout_marginTop="5dp"/>
     <!--post description-->
     <TextView
-            android:id="@+id/post_description"
+            android:id="@+id/profilefeeditem_textview_postdescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/post_title"
-            android:layout_alignLeft="@id/post_photo"
+            android:layout_below="@id/profilefeeditem_textview_posttitle"
+            android:layout_alignLeft="@id/profilefeeditem_imageview_postphoto"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
             android:paddingRight="40dp"/>
+
+
 </RelativeLayout>
