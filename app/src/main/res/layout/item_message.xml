@@ -19,36 +19,18 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
     <LinearLayout
-            android:id="@+id/messageitem_linearlayout_left"
+            android:id="@+id/messageitem_linearlayout_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical">
         <TextView
-                android:id="@+id/messageitem_textview_left_message"
+                android:id="@+id/messageitem_textview_message_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/leftbubble" />
+                 />
         <TextView
-                android:id="@+id/messageitem_textview_left_timestamp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2018.11.24 22:01"
-                android:textSize="9dp"/>
-    </LinearLayout>
-    <LinearLayout
-            android:id="@+id/messageitem_linearlayout_right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-        <TextView
-                android:id="@+id/messageitem_textview_right_message"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rightbubble"/>
-        <TextView
-                android:id="@+id/messageitem_textview_right_timestamp"
+                android:id="@+id/messageitem_textview_message_timestamp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2018.11.24 22:01"

@@ -1,54 +1,29 @@
 package sogong.korea.yazzikja.chat
 
 
-import android.provider.ContactsContract
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.textclassifier.TextLinks
 import android.widget.*
 import com.bumptech.glide.Glide
-import com.bumptech.glide.annotation.GlideModule
-
-
 import com.bumptech.glide.request.RequestOptions
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.OnSuccessListener
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ServerValue
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_message.*
-import kotlinx.android.synthetic.main.item_message.*
-
-
-import java.io.IOException
-import java.text.SimpleDateFormat
-import java.util.ArrayList
-import java.util.Date
-import java.util.TimeZone
-
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.MediaType
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.RequestBody
-import okhttp3.Response
+import okhttp3.*
 import sogong.korea.yazzikja.R
 import sogong.korea.yazzikja.model.ChatModel
 import sogong.korea.yazzikja.model.NotificationModel
 import sogong.korea.yazzikja.model.UserModel
-import kotlin.reflect.KClass
+import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MessageActivity : AppCompatActivity() {
 
@@ -207,7 +182,8 @@ class MessageActivity : AppCompatActivity() {
 
                         notifyDataSetChanged()
 
-                        recyclerView!!.scrollToPosition(comments.size - 1)
+            //            recyclerView!!.scrollToPosition(comments.size - 1)
+
                     }
 
                     override fun onCancelled(databaseError: DatabaseError) {
@@ -222,29 +198,21 @@ class MessageActivity : AppCompatActivity() {
         }
 
         private inner class MessageViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-            var textview_left_message: TextView
-            var textview_right_message: TextView
+            var textview_message: TextView
             var textview_nickname: TextView
-//            var imageview_profile: ImageView
             var linearlayout_destination: LinearLayout
             var linearylayout_main: LinearLayout
-            var textview_left_timestamp: TextView
-            var textview_right_timestamp: TextView
-            var linearlayout_right: LinearLayout
-            var linearlayout_left: LinearLayout
+            var textview_message_timestamp: TextView
+            var linearlayout_message: LinearLayout
 
             init {
-                textview_left_message = view.findViewById<View>(R.id.messageitem_textview_left_message) as TextView
-                textview_right_message = view.findViewById<View>(R.id.messageitem_textview_right_message) as TextView
+                textview_message = view.findViewById<View>(R.id.messageitem_textview_message_content) as TextView
                 textview_nickname = view.findViewById<View>(R.id.messageitem_textview_nickname) as TextView
-//                imageview_profile = view.findViewById<View>(R.id.messageitem_imageview_profile) as ImageView
-                linearlayout_destination =
-                        view.findViewById<View>(R.id.messageitem_linearlayout_destination) as LinearLayout
+
+                linearlayout_destination = view.findViewById<View>(R.id.messageitem_linearlayout_destination) as LinearLayout
                 linearylayout_main = view.findViewById<View>(R.id.messageitem_linearlayout_main) as LinearLayout
-                textview_left_timestamp = view.findViewById<View>(R.id.messageitem_textview_left_timestamp) as TextView
-                textview_right_timestamp = view.findViewById<View>(R.id.messageitem_textview_right_timestamp) as TextView
-                linearlayout_right = view.findViewById(R.id.messageitem_linearlayout_right) as LinearLayout
-                linearlayout_left = view.findViewById(R.id.messageitem_linearlayout_left) as LinearLayout
+                textview_message_timestamp = view.findViewById<View>(R.id.messageitem_textview_message_timestamp) as TextView
+                linearlayout_message = view.findViewById(R.id.messageitem_linearlayout_message) as LinearLayout
 
             }
         }
@@ -253,14 +221,14 @@ class MessageActivity : AppCompatActivity() {
         override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
             val messageViewHolder = viewHolder as MessageViewHolder
 
+            messageViewHolder.textview_message.text = comments[position].message
+            messageViewHolder.textview_message.textSize = 25f
+            messageViewHolder.linearlayout_destination.visibility = View.INVISIBLE
+
             if (comments[position].uid == uid) {
-                messageViewHolder.textview_right_message.text = comments[position].message
-                messageViewHolder.textview_right_message.setBackgroundResource(R.drawable.rightbubble)
+                messageViewHolder.textview_message.setBackgroundResource(R.drawable.rightbubble)
 
 //                messageViewHolder.textview_right_message.scaleY(-1.0)
-                messageViewHolder.linearlayout_destination.visibility = View.INVISIBLE
-                messageViewHolder.linearlayout_left.visibility = View.INVISIBLE
-                messageViewHolder.textview_right_message.textSize = 25f
                 messageViewHolder.linearylayout_main.gravity = Gravity.RIGHT
             } else {
                 Glide.with(viewHolder.itemView.context)
@@ -268,19 +236,15 @@ class MessageActivity : AppCompatActivity() {
                     .apply(RequestOptions().circleCrop())
                     .into(messageactivity_img_holder1)
 //                messageViewHolder.textview_nickname.text = destinationUserModel!!.userNickname
-                messageViewHolder.linearlayout_destination.visibility = View.VISIBLE
-                messageViewHolder.linearlayout_right.visibility = View.INVISIBLE
-                messageViewHolder.textview_left_message.setBackgroundResource(R.drawable.leftbubble)
-                messageViewHolder.textview_left_message.text = comments[position].message
-                messageViewHolder.textview_left_message.textSize = 25f
+//                messageViewHolder.linearlayout_destination.visibility = View.VISIBLE
+                messageViewHolder.textview_message.setBackgroundResource(R.drawable.leftbubble)
                 messageViewHolder.linearylayout_main.gravity = Gravity.LEFT
             }
             val unixTime = comments[position].timestamp as Long
             val date = Date(unixTime)
             simpleDateFormat.timeZone = TimeZone.getTimeZone("Asia/Seoul")
             val time = simpleDateFormat.format(date)
-            messageViewHolder.textview_left_timestamp.text = time
-            messageViewHolder.textview_right_timestamp.text = time
+            messageViewHolder.textview_message_timestamp.text = time
         }
 
         override fun getItemCount(): Int {
