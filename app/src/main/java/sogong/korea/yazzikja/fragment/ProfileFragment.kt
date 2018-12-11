@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -20,6 +22,7 @@ import sogong.korea.yazzikja.R
 import sogong.korea.yazzikja.model.ImageModel
 import sogong.korea.yazzikja.model.UserModel
 import java.text.SimpleDateFormat
+import java.util.*
 
 class ProfileFragment : Fragment() {
 
@@ -127,7 +130,16 @@ class ProfileFragment : Fragment() {
         override fun onBindViewHolder(p0: RecyclerView.ViewHolder, p1: Int) {
             val customViewHolder = p0 as ProfileFragment.ProfileFragmentRecyclerViewAdapter.CustomViewHolder
 
-            p0.textViewPostDescription.text = imageModels[p1].explain
+            customViewHolder.textViewPostDescription.text = imageModels[p1].explain
+            customViewHolder.textViewPostPhotoNumLike.text = imageModels[p1].favoriteCount.toString()
+
+            Glide.with(customViewHolder.itemView.context).load(imageModels!![p1].imageUrl)
+                .apply(RequestOptions()).into(customViewHolder.imageViewPostPhoto)
+
+            simpleDateFormat.timeZone = TimeZone.getTimeZone("Asia/Seoul")
+            val unixTime = imageModels[p1].timestamp as Long
+            val date = Date(unixTime)
+            customViewHolder.textViewPostDate.text = simpleDateFormat.format(date)
         }
 
         override fun onCreateViewHolder(p0: ViewGroup, p1: Int): RecyclerView.ViewHolder {
