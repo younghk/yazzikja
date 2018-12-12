@@ -71,6 +71,7 @@ class ProfileFragment : Fragment() {
         textViewProfileDescription?.text = userInfo?.userIntroduction
 
 
+
         return view
     }
 
