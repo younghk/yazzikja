@@ -1,5 +1,6 @@
 package sogong.korea.yazzikja.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -18,7 +19,9 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.item_profile_feed.*
+import sogong.korea.yazzikja.ManageProfileActivity
 import sogong.korea.yazzikja.R
+import sogong.korea.yazzikja.UploadPostActivity
 import sogong.korea.yazzikja.model.ImageModel
 import sogong.korea.yazzikja.model.UserModel
 import java.text.SimpleDateFormat
@@ -70,10 +73,27 @@ class ProfileFragment : Fragment() {
         textViewNumlike?.text = userInfo?.userNumLike.toString()
         textViewProfileDescription?.text = userInfo?.userIntroduction
 
+        Glide.with(inflater?.context.applicationContext).load(userInfo?.profileImageUri).apply(RequestOptions().circleCrop()).into(imageViewProfileImageBackground!!)
 
+        imageViewEditProfile?.setOnClickListener() {
+            val manageProfileActivityIntent = Intent(this.context, ManageProfileActivity::class.java)
+
+            manageProfileActivityIntent.putExtra("userNickname", uid)
+            manageProfileActivityIntent.putExtra("userLocation", userInfo?.userLocation)
+            manageProfileActivityIntent.putExtra("userNumlike", userInfo?.userNumLike.toString())
+            manageProfileActivityIntent.putExtra("userProfileIntroduction", userInfo?.userIntroduction)
+            manageProfileActivityIntent.putExtra("userProfileImageUri", userInfo?.profileImageUri)
+            startActivity(manageProfileActivityIntent)
+
+        }
+
+        imageViewUploadPost?.setOnClickListener() {
+            val uploadPostActivityIntent = Intent(this.context, UploadPostActivity::class.java)
+        }
 
         return view
     }
+
 
     fun profileFragmentInit() {
         uid = FirebaseAuth.getInstance().currentUser!!.uid
@@ -84,6 +104,7 @@ class ProfileFragment : Fragment() {
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 userInfo = dataSnapshot.getValue(UserModel::class.java)
+
             }
         })
     }
@@ -155,6 +176,7 @@ class ProfileFragment : Fragment() {
             var textViewPostTime: TextView
             var textViewPostTitle: TextView
             var textViewPostDescription: TextView
+
 
             init {
                 textViewPostDate = profilefeeditem_textview_postdate

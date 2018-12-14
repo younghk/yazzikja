@@ -128,7 +128,6 @@ class AccountFragment : Fragment() {
                 profileImageRef.putFile(imageUri!!)
                     .addOnCompleteListener(object: OnCompleteListener<UploadTask.TaskSnapshot> {
                         override fun onComplete(task: Task<UploadTask.TaskSnapshot>) {
-                            //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                             profileImageRef.getDownloadUrl()
                                 .addOnSuccessListener(object: OnSuccessListener<Uri> {
                                     override fun onSuccess(downloadUri : Uri) {

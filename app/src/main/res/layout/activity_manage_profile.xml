@@ -5,7 +5,7 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto">
     <!-- 상단 -->
     <FrameLayout
-            android:id="@+id/accountfragment_manage_top"
+            android:id="@+id/manageprofileactivity_manage_top"
             android:layout_width="match_parent"
             android:layout_height="135dp">
 
@@ -16,7 +16,7 @@
         />
         <!--상단 배경, 일단 임의로 지정해놓음 -->
         <ImageView
-                android:id="@+id/accountfragment_profile_background_image_large"
+                android:id="@+id/manageprofileactivity_profile_background_image_large"
                 android:layout_width="match_parent"
                 android:layout_height="404dp"
                 android:layout_marginTop="-150dp"
@@ -33,13 +33,13 @@
 
         <!--상단문구, 일단 이름이랑 위치는 그냥 써놓음-->
         <FrameLayout
-                android:id="@+id/accountfragment_manage_top_text"
+                android:id="@+id/manageprofileactivity_manage_top_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:paddingBottom="20dp">
             <TextView
-                    android:id="@+id/accountfragment_textview_nickname"
+                    android:id="@+id/manageprofileactivity_textview_nickname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
@@ -47,7 +47,7 @@
                     android:text="userid"
                     android:textSize="20sp"/>
             <TextView
-                    android:id="@+id/accountfragment_textview_location"
+                    android:id="@+id/manageprofileactivity_textview_location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
@@ -56,7 +56,7 @@
                     android:text="Photographer, location"
                     android:textSize="16sp"/>
             <TextView
-                    android:id="@+id/accountfragment_textview_num_like"
+                    android:id="@+id/manageprofileactivity_textview_num_like"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
@@ -73,20 +73,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nickname"
-            android:layout_below="@id/accountfragment_manage_top"
+            android:layout_below="@id/manageprofileactivity_manage_top"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
             android:textSize="18sp"
             android:textColor="#80000000"/>
     <EditText
-            android:id="@+id/accountfragment_edittext_nickname"
+            android:id="@+id/manageprofileactivity_edittext_nickname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="userid"
             android:textSize="18sp"
             android:layout_marginLeft="28dp"
             android:layout_marginRight="40dp"
-            android:layout_below="@id/accountfragment_manage_top"
+            android:layout_below="@id/manageprofileactivity_manage_top"
             android:layout_marginTop="50dp"
             android:textColorHint="#80000000"/>
 
@@ -95,17 +95,17 @@
             android:layout_height="wrap_content"
             android:text="Edit Profile Photo"
             android:textSize="18sp"
-            android:layout_below="@id/accountfragment_edittext_nickname"
+            android:layout_below="@id/manageprofileactivity_edittext_nickname"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:textColor="#80000000"/>
 
     <ImageView
-            android:id="@+id/accountfragment_user_photodisplay"
+            android:id="@+id/manageprofileactivity_user_photodisplay"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/profile_background"
-            android:layout_below="@id/accountfragment_edittext_nickname"
+            android:layout_below="@id/manageprofileactivity_edittext_nickname"
             android:scaleType="centerCrop"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="40dp"/>
@@ -114,7 +114,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/circle_crop"
-            android:layout_below="@id/accountfragment_edittext_nickname"
+            android:layout_below="@id/manageprofileactivity_edittext_nickname"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="40dp"
 
@@ -122,11 +122,11 @@
 
 
     <ImageButton
-            android:id="@+id/accountfragment_photo_select"
+            android:id="@+id/manageprofileactivity_photo_select"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/accountfragment_user_photodisplay"
-            android:layout_below="@id/accountfragment_edittext_nickname"
+            android:layout_toRightOf="@id/manageprofileactivity_user_photodisplay"
+            android:layout_below="@id/manageprofileactivity_edittext_nickname"
             android:layout_marginTop="60dp"
             android:layout_marginLeft="40dp"
             android:background="@android:color/transparent"
@@ -135,17 +135,17 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/accountfragment_user_photodisplay"
+            android:layout_below="@id/manageprofileactivity_user_photodisplay"
             android:text="Location"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
             android:textSize="18sp"
             android:textColor="#80000000"/>
     <EditText
-            android:id="@+id/accountfragment_edittext_locaiton"
+            android:id="@+id/manageprofileactivity_edittext_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/accountfragment_user_photodisplay"
+            android:layout_below="@id/manageprofileactivity_user_photodisplay"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="28dp"
             android:layout_marginRight="40dp"
@@ -157,16 +157,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Introduction"
-            android:layout_below="@id/accountfragment_edittext_locaiton"
+            android:layout_below="@id/manageprofileactivity_edittext_location"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:textSize="18sp"
             android:textColor="#80000000"/>
     <EditText
-            android:id="@+id/accountfragment_edittext_introduction"
+            android:id="@+id/manageprofileactivity_edittext_introduction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/accountfragment_edittext_locaiton"
+            android:layout_below="@id/manageprofileactivity_edittext_location"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="28dp"
             android:layout_marginRight="40dp"
@@ -175,10 +175,10 @@
             android:textSize="18sp"/>
 
     <Button
-            android:id="@+id/accountfragment_button_confirm"
+            android:id="@+id/manageprofileactivity_button_confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/accountfragment_edittext_introduction"
+            android:layout_below="@id/manageprofileactivity_edittext_introduction"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
             android:background="@drawable/confirm"
